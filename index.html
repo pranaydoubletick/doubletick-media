@@ -3,279 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doubletick Media | Operator-Led Growth & Media Execution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>DoubleTick Media | Next-Gen Digital Advertising</title>
     <style>
         :root {
-            --primary: #00ff88;
-            --primary-dark: #00cc6e;
+            --primary: #00ff88; /* A vibrant 'DoubleTick' green */
             --bg: #0a0a0a;
-            --card-bg: #141414;
             --text: #ffffff;
-            --text-dim: #a0a0a0;
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 5%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
         }
-        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: white; }
+
+        /* Subtle background animation */
+        .gradient-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-transform: lowercase;
+        }
+
         .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
 
-        /* Sections */
-        section { padding: 100px 10%; border-bottom: 1px solid #1a1a1a; }
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        /* Hero */
-        #home { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: radial-gradient(circle at 80% 20%, #00ff8815 0%, transparent 40%);
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #888;
         }
-        .hero-content { text-align: center; }
-        h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; line-height: 1.1; }
-        .hero-tagline { color: var(--primary); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; margin-bottom: 10px; }
-        .hero-sub { color: var(--text-dim); font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; }
-        
-        .btn-group { display: flex; gap: 20px; justify-content: center; }
-        .btn { padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-primary { background: var(--primary); color: #000; }
-        .btn-secondary { border: 1px solid var(--primary); color: var(--primary); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2); }
 
-        /* Grid Layouts (Infographics) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .card { background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card i { color: var(--primary); margin-bottom: 20px; }
-        .card h3 { margin-top: 0; font-size: 1.4rem; }
-        .card p { color: var(--text-dim); font-size: 0.95rem; }
+        .platforms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
 
-        /* Services List */
-        .service-tag { display: inline-block; background: #1a1a1a; padding: 5px 15px; border-radius: 20px; margin: 5px; font-size: 0.8rem; border: 1px solid #333; }
+        .platform-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
 
-        /* About Section Image Styling */
-        .about-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
-        .about-text { flex: 1; min-width: 300px; }
-        .about-image { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; border: 1px solid var(--primary); }
-        .about-image img { width: 100%; display: block; filter: grayscale(100%); transition: 0.5s; }
-        .about-image img:hover { filter: grayscale(0%); }
+        .platform-tag:hover {
+            border-color: var(--primary);
+            background: rgba(0, 255, 136, 0.1);
+        }
 
-        /* Stats/Philosophy */
-        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; margin-top: 40px; }
-        .phil-item { border-left: 1px solid var(--primary); padding: 20px; }
-        .phil-item h4 { color: var(--primary); margin: 0; }
+        .status {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
 
-        /* How We Work - Timeline */
-        .step { display: flex; gap: 30px; margin-bottom: 40px; }
-        .step-num { color: var(--primary); font-size: 2rem; font-weight: 800; opacity: 0.3; }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-        /* Footer */
-        footer { padding: 50px 10%; background: #050505; text-align: center; border-top: 1px solid #1a1a1a; }
-        .footer-links { margin-bottom: 30px; }
-        .footer-links a { margin: 0 15px; color: var(--text-dim); text-decoration: none; font-size: 0.8rem; }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .btn-group { flex-direction: column; }
+        footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8rem;
+            color: #444;
         }
     </style>
 </head>
 <body>
+    <div class="gradient-bg"></div>
 
-    <nav>
-        <a href="#home" class="logo">doubletick<span>.media</span></a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#how-it-works">How We Work</a>
-            <a href="#agencies">Agencies</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    <div class="container">
+        <div class="logo">doubletick<span>.media</span></div>
+        <h1>Precision Advertising. Performance Driven.</h1>
+        
+        <div class="status">LAUNCHING SOON</div>
 
-    <section id="home">
-        <div class="container hero-content">
-            <div class="hero-tagline">Operator-Led Growth</div>
-            <h1>Scale with Ownership. <br>Execute with Precision.</h1>
-            <p class="hero-sub">We bridge the gap between strategy and execution, operating like an internal growth owner to scale your advertising across every major platform.</p>
-            <div class="btn-group">
-                <a href="mailto:pranay@doubletick.media" class="btn btn-primary">Book a Growth Conversation</a>
-                <a href="#how-it-works" class="btn btn-secondary">See How We Work</a>
-            </div>
+        <div class="platforms">
+            <span class="platform-tag">Google Search</span>
+            <span class="platform-tag">Meta</span>
+            <span class="platform-tag">Pinterest</span>
+            <span class="platform-tag">Reddit</span>
+            <span class="platform-tag">X</span>
+            <span class="platform-tag">LinkedIn</span>
+            <span class="platform-tag">CTV</span>
+            <span class="platform-tag">Programmatic</span>
         </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <h2 style="text-align:center">Why Doubletick Media?</h2>
-            <div class="grid">
-                <div class="card">
-                    <i data-lucide="shield-check" size="40"></i>
-                    <h3>Operator-Led Growth</h3>
-                    <p>We think and act like business owners. We prioritize bottom-line outcomes, not just campaign activity.</p>
-                </div>
-                <div class="card">
-                    <i data-lucide="trending-up" size="40"></i>
-                    <h3>Unfair Scale Advantage</h3>
-                    <p>Unlock reach with platform credit lines and premium reseller inventories (Tinder, Airtel, Gameloft).</p>
-                </div>
-                <div class="card">
-                    <i data-lucide="layers" size="40"></i>
-                    <h3>Productised Systems</h3>
-                    <p>Repeatable scaling playbooks and AI-assisted optimization frameworks built for 30-60-90 day growth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <div class="about-flex">
-                <div class="about-text">
-                    <span style="color:var(--primary)">OUR STORY</span>
-                    <h2>More than an agency. <br>Your growth execution partner.</h2>
-                    <p>Doubletick Media was built to solve a simple problem: too many brands spend on advertising without true ownership. We sit at the intersection of strategy, media execution, and technology.</p>
-                    <div class="phil-grid">
-                        <div class="phil-item"><h4>Ownership</h4><p>Over Activity</p></div>
-                        <div class="phil-item"><h4>Systems</h4><p>Over Campaigns</p></div>
-                        <div class="phil-item"><h4>Outcomes</h4><p>Over Outputs</p></div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" alt="Team Working">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2 style="text-align:center">Our Capabilities</h2>
-            <p style="text-align:center; color:var(--text-dim)">Modular, scalable services built for brands and agencies.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Performance Media</h3>
-                    <p>Meta, Google, YouTube, and Apple Search Ads optimized for CAC, ROAS, and LTV.</p>
-                    <div class="service-tag">Search</div><div class="service-tag">Social</div><div class="service-tag">App Installs</div>
-                </div>
-                <div class="card">
-                    <h3>Premium Access</h3>
-                    <p>Exclusive reseller inventories: Airtel, Tinder, Gameloft, Just Dial, and Sports Dunia.</p>
-                    <div class="service-tag">Exclusive</div><div class="service-tag">High-Intent</div>
-                </div>
-                <div class="card">
-                    <h3>AI & Automation</h3>
-                    <p>Using AI to test creatives faster and identify winning audience combinations dynamically.</p>
-                    <div class="service-tag">AI-Optimized</div><div class="service-tag">Rapid Testing</div>
-                </div>
-                <div class="card">
-                    <h3>Marketplace Growth</h3>
-                    <p>End-to-end management for Amazon, Flipkart, and Meesho advertising and optimization.</p>
-                    <div class="service-tag">E-com</div><div class="service-tag">Marketplace</div>
-                </div>
-                <div class="card">
-                    <h3>Financial Leverage</h3>
-                    <p>Platform credit lines to help you scale without immediate cash-flow stress.</p>
-                    <div class="service-tag">Media Credits</div><div class="service-tag">Scale</div>
-                </div>
-                <div class="card">
-                    <h3>Organic & SEO</h3>
-                    <p>Technical SEO and App Store Optimization (ASO) to build long-term sustainable growth.</p>
-                    <div class="service-tag">Technical SEO</div><div class="service-tag">ASO</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-it-works">
-        <div class="container">
-            <h2 style="text-align:center; margin-bottom: 60px;">The Growth Roadmap</h2>
-            <div class="step">
-                <div class="step-num">01</div>
-                <div>
-                    <h3>Diagnose</h3>
-                    <p>We audit performance, funnels, and media structures to find constraints.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">02</div>
-                <div>
-                    <h3>Design</h3>
-                    <p>We define a roadmap covering channels, budgets, and KPI frameworks.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">03</div>
-                <div>
-                    <h3>Execute & Scale</h3>
-                    <p>Hands-on optimization using AI, premium inventory, and scaling playbooks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="agencies" style="background: #00ff8805;">
-        <div class="container" style="text-align:center">
-            <h2>Agency Enablement</h2>
-            <p class="hero-sub">We strengthen your delivery without competing for your clients. White-label support, senior strategy, and credit access for your agency partners.</p>
-            <div class="grid" style="text-align:left">
-                <div class="card"><h4>No Client Poaching</h4><p>We respect your relationships and work behind the scenes.</p></div>
-                <div class="card"><h4>Better Margins</h4><p>Scale without adding to your headcount costs.</p></div>
-                <div class="card"><h4>Elite Inventory</h4><p>Win pitches with access to exclusive inventories.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container" style="text-align:center">
-            <h2>Let's Talk Growth</h2>
-            <p>Ready to scale with clarity and control?</p>
-            <div class="card" style="max-width:500px; margin: 40px auto; text-align:left;">
-                <p><strong>Email:</strong> pranay@doubletick.media</p>
-                <a href="mailto:pranay@doubletick.media" class="btn btn-primary" style="display:block; text-align:center; margin-top:20px;">Email Us Now</a>
-            </div>
-        </div>
-    </section>
+        <a href="mailto:pranay@doubletick.media" class="cta-button">Connect With Us</a>
+    </div>
 
     <footer>
-        <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <p style="color:#444; font-size: 0.8rem;">&copy; 2026 PSC Media Tech Pvt. Ltd. | Serving India & Global Markets</p>
+        &copy; 2026 DoubleTick Media. All rights reserved.
     </footer>
-
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-    </script>
 </body>
 </html>
